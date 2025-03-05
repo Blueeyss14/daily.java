@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText username;
@@ -20,8 +21,15 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
 
-        loginButton.setOnClickListener(View view) {
-
+        loginButton.setOnClickListener(new View.OnClickListener()) {
+            @Override
+            public void onClick(View view) {
+                if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
+                    Toast.makeText(MainActivity.this, "Login Succes", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
 
     }
